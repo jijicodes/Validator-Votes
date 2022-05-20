@@ -1,20 +1,21 @@
-import React from 'react'
-import { Box, Grommet,  Nav, Header } from "grommet";
+import React from "react";
+import { Anchor, Box, Grommet, Nav, Header } from "grommet";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 export const HeaderNav = () => {
   return (
-   <Box display="flex" background="brand" pad="small">
-        <Nav direction="row" justify='end'>
-         <Link to="/">Home</Link>
-            <Link  to="/validators">
-              Validators
-            </Link>
-            <Link  to="/proposals">
-              Proposals
-            </Link>
-        </Nav>
-        </Box>      
-    
-  )
-}
+    <Box display="flex" background="brand" pad="small">
+      <Nav direction="row" justify="end">
+        <Anchor as={Link} to="/">
+          Home
+        </Anchor>
+        <Anchor as={Link} to="/validators">
+          Validators
+        </Anchor>
+        <Anchor as={Link} to="/proposals">
+          Proposals
+        </Anchor>
+      </Nav>
+    </Box>
+  );
+};
