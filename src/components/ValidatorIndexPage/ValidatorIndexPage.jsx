@@ -20,10 +20,14 @@ export const ValidatorIndexPage = () => {
     fetch(validatorsListApi)
       .then((res) => res.json())
       .then((a) => a.result)
-
+      .then((vs) =>
+        vs.sort(
+          (prev, current) => current.delegator_shares - prev.delegator_shares
+        )
+      )
       .then(setValidatorList);
   }, []);
-  console.log("aha", validatorList);
+  console.log("sort");
   return (
     <Box>
       <Table>
@@ -47,8 +51,8 @@ export const ValidatorIndexPage = () => {
           </TableRow>
         </TableHeader>
 
-        {validatorList.map((validator) => (
-          <ValidatorListItem validator={validator} />
+        {validatorList.map((validator, index) => (
+          <ValidatorListItem validator={validator} rank={index + 1} />
         ))}
       </Table>
     </Box>

@@ -21,19 +21,12 @@ const numberWithCommas = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-const ranking = () => {
-  let n = 1;
-  for (let i = n; i >= n; i += 1) {
-    console.log(n);
-  }
-};
-
-export const ValidatorListItem = ({ validator }) => {
+export const ValidatorListItem = ({ validator, rank }) => {
   const ICON = `${VALIDATOR_ICON}${validator.operator_address}.png`;
   return (
     <TableRow>
       <TableCell scope="row">
-        <Text>{ranking}</Text>
+        <Text>{rank}</Text>
       </TableCell>
       <TableCell>
         <Anchor as={Link} to={`/validators/${validator.operator_address}`}>
