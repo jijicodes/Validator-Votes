@@ -36,7 +36,10 @@ export const ProposalListItem = ({ proposal }) => {
         {proposal.content.title}
       </Text>
       <Box direction="row" justify="between">
-        <Text>Ends at {proposal.voting_end_time}</Text>
+        <Text>
+          The voting ends on {proposal.voting_end_time.slice(0, 10)} at{" "}
+          {proposal.voting_end_time.slice(11, 16)} UTC
+        </Text>
         <Box>
           <Anchor as={Link} to={`/proposals/${proposal.proposal_id}`}>
             Detail
