@@ -27,7 +27,7 @@ export const ValidatorIndexPage = () => {
       )
       .then(setValidatorList);
   }, []);
-  console.log("sort");
+
   return (
     <Box>
       <Table>
@@ -38,6 +38,9 @@ export const ValidatorIndexPage = () => {
             </TableCell>
             <TableCell scope="col" border="bottom">
               Validator
+            </TableCell>
+            <TableCell scope="col" border="bottom">
+              Slashes
             </TableCell>
             <TableCell scope="col" border="bottom">
               Voting Power

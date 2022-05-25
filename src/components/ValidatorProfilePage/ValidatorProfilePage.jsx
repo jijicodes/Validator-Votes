@@ -10,11 +10,9 @@ import {
   Spinner,
 } from "grommet";
 import { useParams } from "react-router-dom";
-import {
-  DEXMOS_DOMAIN,
-  KEPLR_DOMAIN,
-  VALIDATOR_ICON,
-} from "../../utils/constants";
+import { DEXMOS_DOMAIN, VALIDATOR_ICON } from "../../utils/constants";
+
+const VAL_WALLET_ADDRESS = "osmo1clpqr4nrk4khgkxj78fcwwh6dl3uw4epasmvnj";
 
 export const ValidatorProfilePage = () => {
   const { address } = useParams();
@@ -27,7 +25,6 @@ export const ValidatorProfilePage = () => {
       .then((res) => res.json())
       .then(setValidatorInfo);
   }, []);
-  console.log("jieunjieun", validatorInfo);
 
   if (validatorInfo === undefined) {
     return <Spinner size="large" />;

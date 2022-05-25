@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Avatar,
   Anchor,
   Box,
   Text,
-  Table,
-  TableHeader,
   TableRow,
   TableCell,
   TableBody,
 } from "grommet";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { VALIDATOR_ICON } from "../../utils/constants";
+import {
+  DEXMOS_DOMAIN,
+  KEPLR_DOMAIN,
+  VALIDATOR_ICON,
+} from "../../utils/constants";
 
 const votingPowerFix = (n) => {
   return (n / Math.pow(10, 6)).toFixed(0);
@@ -21,8 +23,11 @@ const numberWithCommas = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
+const VAL_WALLET_ADDRESS = "osmo1clpqr4nrk4khgkxj78fcwwh6dl3uw4epasmvnj";
+
 export const ValidatorListItem = ({ validator, rank }) => {
   const ICON = `${VALIDATOR_ICON}${validator.operator_address}.png`;
+
   return (
     <TableRow>
       <TableCell scope="row">
@@ -35,6 +40,9 @@ export const ValidatorListItem = ({ validator, rank }) => {
             {validator.description.moniker}
           </Box>
         </Anchor>
+      </TableCell>
+      <TableCell scope="row">
+        <Text>slashes</Text>
       </TableCell>
       <TableCell scope="row">
         <Text>
