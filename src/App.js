@@ -15,7 +15,6 @@ import { voteHistory } from "./hooks/voteHistory";
 
 function App() {
   const theme = deepMerge(grommet, customTheme);
-
   const [proposalList, setProposalList] = useState([]);
   const unspecifiedProposalsApi = `${DEXMOS_DOMAIN}/cosmos/gov/v1beta1/proposals?proposal_status=0&pagination.reverse=true`;
 
@@ -29,7 +28,6 @@ function App() {
   useEffect(() => {
     voteHistory();
   }, []);
-  console.log("proposal List", proposalList);
 
   return (
     <Grommet full theme={theme}>
@@ -37,14 +35,14 @@ function App() {
         <Router>
           <HeaderNav />
           <Routes>
-            <Route path="/"></Route>
+            {/* <Route path="/"></Route> */}
             <Route
               path="/validators/:address"
               element={<ValidatorProfilePage />}
             ></Route>
             <Route path="/validators" element={<ValidatorIndexPage />}></Route>
             <Route
-              path="/proposals/:address"
+              path="/proposals/:proposalId"
               element={<ProposalProfile />}
             ></Route>
             <Route

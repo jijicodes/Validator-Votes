@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Meter, Text, Stack } from "grommet";
 import { StopFill } from "grommet-icons";
 
+const tallyPercent = () => {};
+
 export const ProposalTallyVote = ({ tallyValue }) => {
   return (
     <Box gap="large">
@@ -33,9 +35,7 @@ export const ProposalTallyVote = ({ tallyValue }) => {
           />
         </Stack>
       </Box>
-      <Box direction="row" align="center" justify="around">
-        <Box></Box>
-        <Box></Box>
+      <Box direction="row" align="center" justify="center" gap="medium">
         <Box direction="row" gap="xsmall">
           <StopFill color="purple" />
           <Text> Yes</Text>
@@ -52,8 +52,6 @@ export const ProposalTallyVote = ({ tallyValue }) => {
           <StopFill color="blue" />
           <Text>No with Veto</Text>
         </Box>
-        <Box></Box>
-        <Box></Box>
       </Box>
     </Box>
   );
